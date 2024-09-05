@@ -6,6 +6,13 @@
       "apellido": "llanos",
       "edad": "10000",
       "telefono": "352733"
+    },
+    {
+      "id": "2",
+      "nombre": "mateo",
+      "apellido": "ulla",
+      "edad": "10002",
+      "telefono": "7724234"
     }
   ]
 }

@@ -19,16 +19,16 @@ function Form() {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
     window.alert("Formulario enviado");
     console.log(formData);
-    axios.post('http://localhost:3000/usuarios', formData)
-    .then(function (response) {
-      console.log(`Se ha creado el usuario ${formData.nombre}`);
-    })
-    .catch(function (error) {
-      console.log('No se cargo el usuario');
-    });
+    axios
+      .post("http://localhost:3000/usuarios", formData)
+      .then(function (response) {
+        console.log(`Se ha creado el usuario ${formData.nombre}`);
+      })
+      .catch(function (error) {
+        console.log("No se cargo el usuario");
+      });
   };
 
   return (
@@ -42,6 +42,7 @@ function Form() {
             name="nombre"
             value={formData.nombre}
             onChange={handleChange}
+            required
           />
         </div>
         <div>
@@ -52,6 +53,7 @@ function Form() {
             name="apellido"
             value={formData.apellido}
             onChange={handleChange}
+            required
           />
         </div>
         <div>
@@ -73,6 +75,7 @@ function Form() {
             name="telefono"
             value={formData.telefono}
             onChange={handleChange}
+            required
           />
         </div>
         <button type="submit">Enviar</button>

@@ -6,26 +6,26 @@ import Form from "./components/Form.jsx";
 import Navbar from "./components/Navbar.jsx";
 
 function App() {
-  const db = "http://localhost:3000/";
+  const db = "http://localhost:3000";
 
-  const [userData, setUserData] = useState({});
+  const [userData, setUserData] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`${db}/usuarios/`)
-      .then((response) => {
-        setUserData(response);
+      .get(`${db}/usuarios`)
+      .then(function (response) {
+        setUserData(response.data);
       })
-      .catch((error) => {
+      .catch(function (error) {
         console.log("No anduvo", error);
       });
-  }, []);
-  
+  }, [db]);
+
   return (
     <div className="App">
-      <Navbar />
+      <Navbar userData={userData} />
       <Form />
-      <Tabla />
+      <Tabla userData={userData} />
       <Footer />
     </div>
   );
